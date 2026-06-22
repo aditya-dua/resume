@@ -66,61 +66,21 @@ jobs:
           tr '\n' ',' < generated_pdf.txt | sed 's/,$//' > generated_pdf_csv.txt
           echo "attachments=$(cat generated_pdf_csv.txt)" >> "$GITHUB_OUTPUT"
 
-      - name: Send email with PDF (Brevo API)
+      - name: Send email with PDF (Brevo SMTP Relay)
         if: steps.files.outputs.has_files == 'true'
-        shell: bash
-        env:
-          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-          RESUME_EMAIL_FROM: ${{ secrets.RESUME_EMAIL_FROM }}
-          RESUME_EMAIL_TO: ${{ secrets.RESUME_EMAIL_TO }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_SHA: ${{ github.sha }}
-          DOCX_FILES: ${{ steps.files.outputs.docx_files }}
-        run: |
-          set -euo pipefail
-          python3 - <<'PY'
-          import base64
-          import json
-          import os
-          from pathlib import Path
-
-          attachments = []
-          with open("generated_pdf.txt", "r", encoding="utf-8") as f:
-              for line in f:
-                  file_path = line.strip()
-                  if not file_path:
-                      continue
-                  p = Path(file_path)
-                  attachments.append(
-                      {
-                          "name": p.name,
-                          "content": base64.b64encode(p.read_bytes()).decode("utf-8"),
-                      }
-                  )
-
-          payload = {
-              "sender": {
-                  "email": os.environ["RESUME_EMAIL_FROM"],
-                  "name": "Resume Automation",
-              },
-              "to": [{"email": os.environ["RESUME_EMAIL_TO"]}],
-              "subject": f"Updated resume PDF(s) from {os.environ['GITHUB_REPOSITORY']} @ {os.environ['GITHUB_SHA']}",
-              "textContent": (
-                  "Resume PDF conversion completed.\n"
-                  f"Repository: {os.environ['GITHUB_REPOSITORY']}\n"
-                  f"Commit: {os.environ['GITHUB_SHA']}\n"
-                  f"Changed DOCX file(s): {os.environ['DOCX_FILES']}"
-              ),
-              "attachment": attachments,
-          }
-
-          with open("brevo_payload.json", "w", encoding="utf-8") as f:
-              json.dump(payload, f)
-          PY
-
-          curl --fail --silent --show-error \
-            -X POST "https://api.brevo.com/v3/smtp/email" \
-            -H "accept: application/json" \
-            -H "api-key: ${BREVO_API_KEY}" \
-            -H "content-type: application/json" \
-            --data @brevo_payload.json
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp-relay.brevo.com
+          server_port: 587
+          secure: false
+          username: af9602001@smtp-brevo.com
+          password: ${{ secrets.BREVO_SMTP_PASSWORD }}
+          subject: "Updated resume PDF(s) from ${{ github.repository }} @ ${{ github.sha }}"
+          to: adityadua1992@gmail.com
+          from: ${{ secrets.RESUME_EMAIL_FROM }}
+          body: |
+            Resume PDF conversion completed.
+            Repository: ${{ github.repository }}
+            Commit: ${{ github.sha }}
+            Changed DOCX file(s): ${{ steps.files.outputs.docx_files }}
+          attachments: ${{ steps.pdfs.outputs.attachments }}
