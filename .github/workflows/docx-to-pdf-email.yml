@@ -1,0 +1,86 @@
+name: DOCX to PDF and Email
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  convert-and-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Install LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice
+
+      - name: Find changed DOCX files
+        id: files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p generated-pdf
+
+          BEFORE_SHA="${{ github.event.before }}"
+          CURRENT_SHA="${{ github.sha }}"
+
+          if [[ -n "$BEFORE_SHA" ]] && [[ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]]; then
+            git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA" | grep -Ei '\.docx$' > changed_docx.txt || true
+          else
+            find . -maxdepth 2 -type f -name "*.docx" > changed_docx.txt
+          fi
+
+          if [[ ! -s changed_docx.txt ]]; then
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "has_files=true" >> "$GITHUB_OUTPUT"
+          tr '\n' ',' < changed_docx.txt | sed 's/,$//' > changed_docx_csv.txt
+          echo "docx_files=$(cat changed_docx_csv.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Convert DOCX to PDF
+        if: steps.files.outputs.has_files == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r docx; do
+            [[ -z "$docx" ]] && continue
+            soffice --headless --convert-to pdf --outdir generated-pdf "$docx"
+          done < changed_docx.txt
+
+      - name: Collect PDF attachments
+        if: steps.files.outputs.has_files == 'true'
+        id: pdfs
+        shell: bash
+        run: |
+          set -euo pipefail
+          ls -1 generated-pdf/*.pdf > generated_pdf.txt
+          tr '\n' ',' < generated_pdf.txt | sed 's/,$//' > generated_pdf_csv.txt
+          echo "attachments=$(cat generated_pdf_csv.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Send email with PDF
+        if: steps.files.outputs.has_files == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Updated resume PDF(s) from ${{ github.repository }} @ ${{ github.sha }}"
+          to: ${{ secrets.RESUME_EMAIL_TO }}
+          from: ${{ secrets.RESUME_EMAIL_FROM }}
+          secure: true
+          body: |
+            Resume PDF conversion completed.
+            Repository: ${{ github.repository }}
+            Commit: ${{ github.sha }}
+            Changed DOCX file(s): ${{ steps.files.outputs.docx_files }}
+          attachments: ${{ steps.pdfs.outputs.attachments }}
