@@ -1,4 +1,4 @@
-name: DOCX to PDF Artifact
+name: DOCX to PDF Artifact and Email
 
 on:
   push:
@@ -70,3 +70,22 @@ jobs:
           name: resume-pdfs-${{ github.run_number }}
           path: generated-pdf/*.pdf
           if-no-files-found: error
+
+      - name: Send generated PDFs over SMTP
+        if: steps.files.outputs.has_files == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp-relay.brevo.com
+          server_port: 587
+          secure: false
+          username: af9602001@smtp-brevo.com
+          password: ${{ secrets.BREVO_SMTP_PASSWORD }}
+          subject: "Updated resume PDF(s) from ${{ github.repository }} @ ${{ github.sha }}"
+          to: adityadua1992@gmail.com
+          from: ${{ secrets.RESUME_EMAIL_FROM }}
+          body: |
+            Resume PDF conversion completed.
+            Repository: ${{ github.repository }}
+            Commit: ${{ github.sha }}
+            Changed DOCX file(s): ${{ steps.files.outputs.docx_files }}
+          attachments: generated-pdf/*.pdf
