@@ -9,11 +9,8 @@ This repo includes a workflow at `.github/workflows/docx-to-pdf-email.yml` that 
 2. Converts them to PDF using LibreOffice.
 3. Emails the generated PDF file(s).
 
-Set these repository secrets before using it:
+Set these repository secrets before using it (Brevo API):
 
-- `SMTP_SERVER` (example: `smtp.gmail.com`)
-- `SMTP_PORT` (example: `465`)
-- `SMTP_USERNAME`
-- `SMTP_PASSWORD` (for Gmail, use an app password)
-- `RESUME_EMAIL_FROM`
+- `BREVO_API_KEY`
+- `RESUME_EMAIL_FROM` (must be a verified sender in Brevo)
 - `RESUME_EMAIL_TO`
