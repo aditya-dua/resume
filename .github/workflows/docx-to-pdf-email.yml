@@ -1,4 +1,4 @@
-name: DOCX to PDF and Email
+name: DOCX to PDF Artifact
 
 on:
   push:
@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  convert-and-email:
+  convert-and-upload:
     runs-on: ubuntu-latest
 
     steps:
@@ -56,31 +56,17 @@ jobs:
             soffice --headless --convert-to pdf --outdir generated-pdf "$docx"
           done < changed_docx.txt
 
-      - name: Collect PDF attachments
+      - name: Collect generated PDFs
         if: steps.files.outputs.has_files == 'true'
-        id: pdfs
         shell: bash
         run: |
           set -euo pipefail
           ls -1 generated-pdf/*.pdf > generated_pdf.txt
-          tr '\n' ',' < generated_pdf.txt | sed 's/,$//' > generated_pdf_csv.txt
-          echo "attachments=$(cat generated_pdf_csv.txt)" >> "$GITHUB_OUTPUT"
 
-      - name: Send email with PDF (Brevo SMTP Relay)
+      - name: Upload generated PDFs as artifact
         if: steps.files.outputs.has_files == 'true'
-        uses: dawidd6/action-send-mail@v3
+        uses: actions/upload-artifact@v4
         with:
-          server_address: smtp-relay.brevo.com
-          server_port: 587
-          secure: false
-          username: af9602001@smtp-brevo.com
-          password: ${{ secrets.BREVO_SMTP_PASSWORD }}
-          subject: "Updated resume PDF(s) from ${{ github.repository }} @ ${{ github.sha }}"
-          to: adityadua1992@gmail.com
-          from: ${{ secrets.RESUME_EMAIL_FROM }}
-          body: |
-            Resume PDF conversion completed.
-            Repository: ${{ github.repository }}
-            Commit: ${{ github.sha }}
-            Changed DOCX file(s): ${{ steps.files.outputs.docx_files }}
-          attachments: ${{ steps.pdfs.outputs.attachments }}
+          name: resume-pdfs-${{ github.run_number }}
+          path: generated-pdf/*.pdf
+          if-no-files-found: error
