@@ -14,3 +14,12 @@ Set these repository secrets:
 
 - `BREVO_SMTP_PASSWORD`
 - `RESUME_EMAIL_FROM` (must be a verified sender in Brevo)
+
+## GitHub Pages resume site
+
+An animated resume website is available in `docs/` and can be published with GitHub Pages.
+
+1. Open **Settings → Pages** in the repository.
+2. Under **Build and deployment**, select **Deploy from a branch**.
+3. Choose branch **main** and folder **/docs**.
+4. Save and wait for Pages to publish.
