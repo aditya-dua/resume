@@ -21,16 +21,25 @@ Cloud Strategy & Architecture (AWS, Azure) | Team Leadership & People Management
 ### HCL Technologies — Technical Lead / Team Lead (Cloud Engineering)
 [Month Year] – Present | [Location]
 
-- Lead and mentor a multidisciplinary cloud engineering team delivering enterprise programs on AWS and Azure.
-- Own end-to-end delivery for cloud-native and migration initiatives, from discovery and architecture through rollout and operational handover.
-- Define cloud landing zones, governance guardrails, and reusable IaC patterns to standardize deployments and reduce time to market.
-- Drive migration of business-critical applications from legacy/on-premise environments to public cloud with minimal disruption.
-- Establish CI/CD best practices, improving release predictability, deployment frequency, and rollback readiness.
-- Partner with security, compliance, and operations teams to improve cloud posture and align with organizational controls.
-- Implement reliability and observability standards (SLIs/SLOs, alerting, runbooks), reducing production incidents and recovery time.
-- Lead capacity planning and FinOps initiatives to optimize utilization and control cloud spend.
-- Collaborate with enterprise architects, product managers, and senior stakeholders to align cloud delivery with business priorities.
-- Support hiring, onboarding, and career development for engineers; build a culture of ownership, quality, and continuous improvement.
+- Led end-to-end public cloud operations across AWS and Azure for enterprise clients in Pharma domain
+- Owned operational governance: SLA/KPI tracking, service reviews, risk management, and escalation handling
+- Utilizing Terraform based pipeline in Azure DevOps for operational efficiency.
+- Established Splunk-based observability using Azure Event Hub and AWS CloudTrail for real-time alerting and incident detection
+- Implemented AWS Instance Scheduler and Azure auto-shutdown policies for FinOps and cost reduction
+- Built and maintained runbooks, SOPs, Design Specification documents and Work Instructions for operational resilience
+- Led vRealize Automation (vRA) and vRealize Orchestrator (vRO) implementation to automate manual cloud & on-prem provisioning and operational tasks, eliminating repetitive human effort and reducing turnaround time
+- Managed and maintained a library of 20+ vRO workflows covering VM lifecycle, DNS updates, storage provisioning, snapshot management, and IP Management.
+- Led operations team in adopting vRA self-service portal(Aria), and letting them leveraged by other teams as well.
+- Coordinated workflow governance: versioning, testing, peer review, and approval processes for all vRO workflow changes in production
+- Conducted formal qualification of cloud services before onboarding - assessed architecture design, security posture, resource tagging standards, naming conventions, and compliance alignment to ensure workloads met enterprise cloud readiness criteria
+- Maintained rigorous SLA tracking for all ServiceNow incident and service request tickets; produced weekly and monthly highlight reports covering open/closed ticket volumes, SLA breach analysis, incident trends, MTTR metrics, and actionable recommendations shared with customer and management stakeholders
+- Provided 24x7 on-call support for Priority 1 (P1) and critical incidents; led bridge calls, performed structured root cause analysis (RCA), coordinated with resolver teams, and ensured timely stakeholder communication and post-incident review documentation
+- Administered key cloud services across Azure and AWS including Virtual Networks (VNet), Virtual Machines, automated cloud provisioning pipelines, landing zone governance, private endpoints, DNS zones, App Services and storage account configurations
+- Led periodic orphan resource cleanup across Azure and AWS environments - identified and safely decommissioned unused virtual machines, unattached disks, stale snapshots, idle public IPs, and empty resource groups, delivering measurable cost savings and reducing environment clutter
+- Enforced cloud governance through Azure Policy assignments, AWS Service Control Policies (SCPs), RBAC-based access management, and Entra ID (Azure AD) lifecycle management including role assignments, Privileged Identity Management (PIM), group policies, and conditional access configurations
+- Managed cloud network operations including VNet peering, Hub-Spoke topology governance, ExpressRoute and VPN connectivity validation, NSG rule review cycles, and traffic routing configuration changes with full change management compliance
+- Delivered end-to-end cloud operations management - spanning service request intake, infrastructure provisioning, configuration, monitoring, patching, compliance checks, incident resolution, Problem Management ensuring full lifecycle accountability for all cloud assets
+- Designed, built, and maintained ServiceNow service catalogue items for cloud provisioning requests and enabling ServiceNow Discovery for better governance and compliance.
 
 ### [Previous Company] — [Role]
 [Month Year] – [Month Year] | [Location]
@@ -60,4 +69,3 @@ Cloud Strategy & Architecture (AWS, Azure) | Team Leadership & People Management
 - Domain Experience: [BFSI / Healthcare / Retail / Telecom / Manufacturing]
 - Notice Period: [Immediate / X Days]
 - Work Authorization: [Country/Region]
-
