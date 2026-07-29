@@ -1,10 +1,11 @@
 # resume
-Resume
 
+Resume assets and GitHub Pages site for Nimisha Mehta.
 
+## GitHub Pages deploy
 
-This repo includes a workflow at `.github/workflows/docx-to-pdf-email.yml` that runs on every push:
+This repository deploys the `docs/` folder to GitHub Pages using:
 
-1. Detects changed `.docx` files in the pushed commit.
-2. Converts them to PDF using LibreOffice.
-3. Uploads generated PDF file(s) as a GitHub Actions artifact.
+- `.github/workflows/deploy-pages.yml`
+
+In repository settings, set **Pages → Source = GitHub Actions**.
