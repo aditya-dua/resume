@@ -1,26 +1,34 @@
-# Nimisha Mehta
-Location: [City, State, Country] | Phone: [Phone Number] | Email: [Professional Email]  
+# NIMISHA MEHTA
+Delhi | +91-9643322703 | mehta.nimisha65@gmail.com  
 LinkedIn: https://in.linkedin.com/in/nimisha-mehta-1ab99863
 
-## Professional Summary
-Seasoned technology leader with 12+ years of experience driving enterprise cloud programs, engineering delivery, and cross-functional teams. Proven expertise in building and scaling secure, resilient, and cost-optimized solutions across **AWS** and **Microsoft Azure**. Strong track record in cloud migration, modernization, DevOps enablement, stakeholder management, and mentoring high-performing engineering teams. Adept at translating business strategy into cloud roadmaps that improve delivery speed, operational excellence, and customer outcomes.
+## PROFESSIONAL SUMMARY
+Operations-focused cloud technology leader with 10+ years of hands-on experience in Azure/AWS cloud operations and migrations. Proven in service delivery governance, incident management, stakeholder communication, migration execution, and building high-performing cloud teams. Delivered enterprise programs for Telecom (AT&T) and Pharma (Novartis/Sandoz) clients.
 
-## Core Competencies
-Cloud Strategy & Architecture (AWS, Azure) | Team Leadership & People Management | Cloud Migration & Modernization | DevOps & CI/CD | Infrastructure as Code | FinOps & Cost Optimization | Site Reliability & Operations | Security & Compliance | Agile Delivery | Stakeholder & Vendor Management
+## LEADERSHIP HIGHLIGHTS
+- Team leadership and people management across cloud operations and engineering functions
+- SLA/KPI governance, service review ownership, risk tracking, and escalation management
+- Customer-facing delivery leadership across enterprise migration and steady-state operations
+- Operational excellence through automation, observability, and runbook-driven support models
 
-## Technical Skills
-**Cloud Platforms:** AWS (EC2, EKS, ECS, Lambda, RDS, S3, CloudFront, IAM, CloudWatch, VPC), Azure (AKS, App Service, Functions, Azure SQL, Storage, Key Vault, Monitor, VNet, Entra ID)  
-**DevOps & Automation:** Terraform, CloudFormation, Azure DevOps, Jenkins, GitHub Actions, Ansible, ArgoCD  
-**Containers & Orchestration:** Docker, Kubernetes, Helm  
-**Observability & Reliability:** Prometheus, Grafana, ELK, Datadog, CloudWatch, Azure Monitor  
-**Security:** IAM/RBAC, KMS/Key Vault, WAF, security baselines, policy-as-code, vulnerability remediation  
-**Programming/Scripting:** Python, Bash, PowerShell, SQL  
-**Ways of Working:** Agile/Scrum, SDLC governance, incident management, release management
+## TECHNICAL SKILLS
+**Cloud Platforms:** Azure, AWS  
+**Automation & IaC:** Terraform, Azure DevOps, vRA, vRO  
+**Operations:** Incident, Change, Problem, Service Management (ITIL aligned)  
+**Observability:** Splunk, Azure Event Hub, AWS CloudTrail, Azure Monitor, Log Analytics  
+**Governance & Security:** Azure Policy, AWS SCP, RBAC, Entra ID, PIM, Conditional Access  
+**Cloud Services:** VNet, VM, App Services, Storage, DNS, Private Endpoints, Landing Zones
 
-## Professional Experience
-### HCL Technologies — Technical Lead / Team Lead (Cloud Engineering)
-[Month Year] – Present | [Location]
+## CERTIFICATIONS
+- AI-900: Microsoft Azure AI Fundamentals
+- AZ-900: Microsoft Azure Fundamentals
+- AZ-104: Microsoft Azure Administrator
+- AZ-305: Microsoft Azure Solutions Architect Expert
+- DP-900: Microsoft Azure Data Fundamentals
 
+## PROFESSIONAL EXPERIENCE
+### HCL Technologies Ltd. | Tech Lead (Azure & AWS Ops/Engineering) | 2021 - Present
+**Public Cloud (AWS & Azure) & Automation (vRA/vRO) Lead**
 - Led end-to-end public cloud operations across AWS and Azure for enterprise clients in Pharma domain
 - Owned operational governance: SLA/KPI tracking, service reviews, risk management, and escalation handling
 - Utilizing Terraform based pipeline in Azure DevOps for operational efficiency.
@@ -41,31 +49,32 @@ Cloud Strategy & Architecture (AWS, Azure) | Team Leadership & People Management
 - Delivered end-to-end cloud operations management - spanning service request intake, infrastructure provisioning, configuration, monitoring, patching, compliance checks, incident resolution, Problem Management ensuring full lifecycle accountability for all cloud assets
 - Designed, built, and maintained ServiceNow service catalogue items for cloud provisioning requests and enabling ServiceNow Discovery for better governance and compliance.
 
-### [Previous Company] — [Role]
-[Month Year] – [Month Year] | [Location]
+**Azure Cloud Lead — Novartis / Sandoz (Pharma)**
+- Served as Azure technical lead for migration and steady-state operations of Novartis and Sandoz cloud environments
+- Managed Azure infrastructure lifecycle: App Services, AKS, Key Vault, VNets, Storage, and Entra ID configurations
+- Led cloud governance initiatives including Azure Policy, tagging compliance, RBAC, and security baseline enforcement
+- Coordinated platform monitoring and alerting using Azure Monitor, Log Analytics, and Defender for Cloud
+- Drove capacity planning, resource optimisation, and monthly FinOps reviews with customer stakeholders
+- Managed change, incident, and problem management aligned to ITIL practices and customer SLA commitments
+- Mentored junior engineers on Azure best practices and delivered internal knowledge-sharing sessions
 
-- Delivered cloud and infrastructure transformation programs across hybrid/public cloud environments.
-- Improved platform availability and deployment automation through standardization and tooling.
-- Worked closely with development and operations teams to improve release quality and incident response.
-- Contributed to cloud governance, security hardening, and process maturity initiatives.
+### Tech Mahindra Ltd. | Azure Cloud Manager | 2018 - 2021
+- Managed cloud delivery for multiple Azure migration programs across planning, design, execution, and transition phases
+- Led provisioning of VMs, storage, NSG, Key Vault, and CI/CD pipelines for enterprise clients
+- Directed enterprise integration for secure file-transfer and messaging systems (Connect:Direct, IBM MQ)
+- Facilitated migration acceptance testing (MAT), knowledge transfer, and post-go-live hypercare support
 
-## Selected Impact Highlights
-- Delivered multi-workload cloud migration programs across AWS and Azure for enterprise clients, improving agility and scalability.
-- Reduced provisioning lead times by implementing IaC and standardized deployment templates.
-- Improved operational reliability through proactive monitoring, observability dashboards, and incident response playbooks.
-- Enabled cost control through rightsizing, resource governance, and usage optimization practices.
-- Strengthened team capability through mentoring, upskilling, and structured delivery governance.
+### Tech Mahindra Ltd. | L1/L2 Cloud Engineer | 2014 - 2018
+- Delivered L1/L2 production support for AT&T telecom cloud infrastructure with SLA adherence
+- Conducted root cause analysis for high-severity defects to reduce recurrence and improve stability
+- Supported infrastructure reliability, monitoring, and automation for cloud operations
 
-## Certifications
-- [AWS Certified Solutions Architect – Associate/Professional]
-- [Microsoft Certified: Azure Solutions Architect Expert / Azure Administrator Associate]
-- [Certified Kubernetes Administrator (if applicable)]
-- [ITIL / SAFe / Scrum Certifications (if applicable)]
+## KEY ACHIEVEMENTS
+- Integrated ServiceNow with Splunk to automate backup-failure alerting, reducing resolution time significantly
+- Automated repetitive service-request workflows, cutting SLA turnaround time and improving CSAT scores
+- Optimized VM sizing and scheduling across Azure and AWS environments, delivering ~30% cloud cost savings while maintaining performance and SLA targets.
+- Strengthened delivery governance across operations and engineering, improving team output and audit scores
+- Reduced cloud provisioning time by 40% through IaC standardisation and reusable Terraform module libraries
 
-## Education
-**[Degree]**, [Specialization] — [University Name], [Year]
-
-## Additional Information
-- Domain Experience: [BFSI / Healthcare / Retail / Telecom / Manufacturing]
-- Notice Period: [Immediate / X Days]
-- Work Authorization: [Country/Region]
+## EDUCATION
+B.Tech (EEE), Rajasthan Technical University, 2014 (Score: 75%)
