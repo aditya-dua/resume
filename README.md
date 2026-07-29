@@ -23,3 +23,5 @@ An animated resume website is available in `docs/` and can be published with Git
 2. Under **Build and deployment**, select **Deploy from a branch**.
 3. Choose branch **main** and folder **/docs**.
 4. Save and wait for Pages to publish.
+
+The workflow `.github/workflows/deploy-pages.yml` now auto-deploys the `docs/` site on every push to `main` (and can also be run manually).
